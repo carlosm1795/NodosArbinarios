@@ -20,6 +20,7 @@ public class ArbolesBinarios {
             arbol.insertarNodo( valor );
         }*/
         arbol.insertarNodo(6);
+        arbol.insertarNodo(1);
         arbol.insertarNodo(2);
         arbol.insertarNodo(10);
         arbol.insertarNodo(11);

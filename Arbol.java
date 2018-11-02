@@ -74,8 +74,16 @@ public class Arbol {
         }
         
     }
+    public int encontrarBrazo(NodoArbol nodo,int pDato){
+        if(nodo.nodoDer.datos == pDato){
+            return 1;
+        }else{
+            return 2;
+        }
+    }
     
     public void deleteNodo(NodoArbol nodo,NodoArbol nodoSiguiente,int pDato){
+        int direccion = 0;
         if (nodo == null){
             return;
         }
@@ -87,6 +95,21 @@ public class Arbol {
                         nodo.nodoIzq = null;
                 }
                 return;
+            }else{
+                direccion = encontrarBrazo(nodo,pDato);
+                if(direccion == 1){
+                    if(nodoSiguiente.nodoDer == null){
+                        nodo.nodoDer = nodoSiguiente.nodoIzq;
+                    }else if(nodoSiguiente.nodoIzq == null){
+                        nodo.nodoDer = nodoSiguiente.nodoDer;
+                    }
+                }else if(direccion == 2){
+                    if(nodoSiguiente.nodoIzq == null){
+                        nodo.nodoIzq = nodoSiguiente.nodoIzq;
+                    }else if(nodoSiguiente.nodoIzq == null){
+                        nodo.nodoIzq = nodoSiguiente.nodoDer;
+                    }
+                }
             }
             
         }else if (nodoSiguiente.datos>pDato){
@@ -120,6 +143,10 @@ public class Arbol {
             return buscarNodo(node.nodoDer,pDato);
         }
         
+    }
+    
+    public NodoArbol getLowestDerechaNodo(NodoArbol nodo){
+        return null;
     }
     
     
