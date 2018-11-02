@@ -20,10 +20,13 @@ public class ArbolesBinarios {
             arbol.insertarNodo( valor );
         }*/
         arbol.insertarNodo(6);
-        arbol.insertarNodo(1);
         arbol.insertarNodo(2);
+        arbol.insertarNodo(1);
+        arbol.insertarNodo(4);
+        arbol.insertarNodo(3);
+        arbol.insertarNodo(5);
+        arbol.insertarNodo(8);
         arbol.insertarNodo(10);
-        arbol.insertarNodo(11);
         System.out.println("");
         //System.out.println ( "\n\nRecorrido preorden" );
         //arbol.recorridoPreorden();
@@ -37,10 +40,12 @@ public class ArbolesBinarios {
         
         //arbol.verificarNodo(valoresAInsertar);
         arbol.search();
-        arbol.eliminarNodo(10);
+        //arbol.eliminarNodo(8);
         
         
-        arbol.recorridoInorden();
+        //arbol.recorridoInorden();
+        //arbol.mostrarNodoEncontrado(2);
+        arbol.infoParaEliminar(4);
     }
     
 }

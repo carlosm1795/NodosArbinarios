@@ -144,9 +144,64 @@ public class Arbol {
         }
         
     }
+    public void infoParaEliminar(int pDato){
+        NodoArbol nodo = buscarNodoPorValor(raiz,pDato);
+        if(nodo.datos > pDato){
+            printLowerValue(nodo.nodoIzq.nodoDer);
+        }else if (nodo.datos<pDato){
+            printLowerValue(nodo.nodoDer.nodoDer);
+        }
+    }
+    public void printLowerValue(NodoArbol main){
+        NodoArbol nodo;
+        nodo = getLowestDerechaNodo(main);
+        System.out.println("");
+        System.out.println("El valor del nodo es:"+nodo.datos);
+    }
     
+    //Metodo que regresa cual es el dato mas pequeño  de un arbol.
     public NodoArbol getLowestDerechaNodo(NodoArbol nodo){
-        return null;
+        if(nodo == null){
+            return null;
+        }
+        if(nodo.nodoIzq == null && nodo.nodoDer == null){
+            return nodo;
+        }
+        if(nodo.nodoIzq != null){
+            return getLowestDerechaNodo(nodo.nodoIzq);
+        }else{
+            return nodo;
+        }
+        
+    }
+    
+    public void mostrarNodoEncontrado(int pDato){
+        NodoArbol nodo;
+        nodo = buscarNodoPorValor(raiz,pDato);
+        System.out.println("");
+        System.out.println("Valor:"+ nodo.datos);
+    }
+    
+    public NodoArbol buscarNodoPorValor(NodoArbol node,int pDato){
+        if (node == null){
+            return null;
+        }
+        if(pDato < node.datos){
+            if(pDato == node.nodoIzq.datos){
+                return node;
+            }else{
+                return buscarNodoPorValor(node.nodoIzq,pDato);
+            }
+            
+        }else{
+            if(pDato == node.nodoDer.datos){
+                return node;
+            }else{
+                 return buscarNodoPorValor(node.nodoDer,pDato);
+            }
+        
+        }
+        
     }
     
     
