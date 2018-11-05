@@ -9,6 +9,14 @@ public class ArbolesBinarios {
   
     public static void main(String[] args) {
         // TODO code application logic here
+        //    6
+        //   / \
+        //  2   8
+        // /\   /\
+        //1  4 7 9
+        //  /\    \
+        // 3  5    10
+        
         Arbol arbol = new Arbol();
         int valor;
         Random numeroAleatorio = new Random();
@@ -26,6 +34,8 @@ public class ArbolesBinarios {
         arbol.insertarNodo(3);
         arbol.insertarNodo(5);
         arbol.insertarNodo(8);
+        arbol.insertarNodo(7);
+        arbol.insertarNodo(9);
         arbol.insertarNodo(10);
         System.out.println("");
         //System.out.println ( "\n\nRecorrido preorden" );
@@ -33,19 +43,12 @@ public class ArbolesBinarios {
         
         //System.out.println ( "\n\nRecorrido inorden" );
         arbol.recorridoInorden();
+
+        System.out.println("");
+        arbol.eliminarNodo(9);
         
-        //System.out.println ( "\n\nRecorrido postorden" );
-        //arbol.recorridoPostorden();
-        //System.out.println();
-        
-        //arbol.verificarNodo(valoresAInsertar);
-        arbol.search();
-        //arbol.eliminarNodo(8);
-        
-        
-        //arbol.recorridoInorden();
-        //arbol.mostrarNodoEncontrado(2);
-        arbol.infoParaEliminar(4);
+        arbol.recorridoInorden();
+
     }
     
 }

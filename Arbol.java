@@ -84,6 +84,7 @@ public class Arbol {
     
     public void deleteNodo(NodoArbol nodo,NodoArbol nodoSiguiente,int pDato){
         int direccion = 0;
+        NodoArbol example;
         if (nodo == null){
             return;
         }
@@ -102,12 +103,28 @@ public class Arbol {
                         nodo.nodoDer = nodoSiguiente.nodoIzq;
                     }else if(nodoSiguiente.nodoIzq == null){
                         nodo.nodoDer = nodoSiguiente.nodoDer;
+                    }else{
+                        
+                        example = getLowestDerechaNodo(nodoSiguiente);
+                        //System.out.println("El dato es:" + example.datos);
+                        nodo.nodoDer = example;
+                        example.nodoIzq = null;
+                        example.nodoDer = nodoSiguiente.nodoDer;
+                        return;
                     }
                 }else if(direccion == 2){
                     if(nodoSiguiente.nodoIzq == null){
                         nodo.nodoIzq = nodoSiguiente.nodoIzq;
                     }else if(nodoSiguiente.nodoIzq == null){
                         nodo.nodoIzq = nodoSiguiente.nodoDer;
+                    }else{
+                        
+                        example = getLowestDerechaNodo(nodoSiguiente);
+                        //System.out.println("El dato es:" + example.datos);
+                        nodo.nodoIzq = example;
+                        example.nodoIzq = null;
+                        example.nodoDer = nodoSiguiente.nodoDer;
+                        return;
                     }
                 }
             }
@@ -129,7 +146,8 @@ public class Arbol {
             return getLeafCount(node.nodoDer) + getLeafCount(node.nodoIzq)+1; 
     } 
     public void search(){
-        System.out.println(buscarNodo(raiz,10));
+        //System.out.println(buscarNodo(raiz,10));
+        System.out.println();
     }
     public boolean buscarNodo(NodoArbol node,int pDato){
         if (node == null){
